@@ -1,27 +1,22 @@
-package RGR.Gallery.service.implementations;
+package com.example.gallery.service.implementations;
 
-import RGR.Gallery.model.ConfirmationToken;
-import RGR.Gallery.model.User;
-import RGR.Gallery.service.interfaces.EmailService;
-import RGR.Gallery.service.interfaces.RegistrationService;
-import RGR.Gallery.validator.RegistrationValidator;
-import org.ocpsoft.rewrite.annotation.Join;
+import com.example.gallery.model.ConfirmationToken;
+import com.example.gallery.model.RegistrationRequest;
+import com.example.gallery.service.interfaces.EmailService;
+import com.example.gallery.service.interfaces.RegistrationService;
+import com.example.gallery.validator.RegistrationValidator;
 import org.springframework.stereotype.Service;
 
-import javax.faces.context.FacesContext;
-import java.io.IOException;
 import java.time.LocalDateTime;
 
 @Service
-@Join(path = "/", to = "/index.jsf")
 public class RegistrationServiceImpl implements RegistrationService {
 
     private final RegistrationValidator registrationValidator;
     private final UserServiceImpl userServiceImpl;
     private final ConfirmationTokenServiceImpl confirmationTokenServiceImpl;
     private final EmailService emailService;
-    private User user = new User();
-    private static final String LINK = "http://localhost:8080/confirm?token=";
+    private static final String LINK = "http://localhost:7070/api/v1/registration/confirm?token=";
 
     public RegistrationServiceImpl(RegistrationValidator registrationValidator, UserServiceImpl userServiceImpl, ConfirmationTokenServiceImpl confirmationTokenServiceImpl, EmailService emailService) {
         this.registrationValidator = registrationValidator;
@@ -30,20 +25,18 @@ public class RegistrationServiceImpl implements RegistrationService {
         this.emailService = emailService;
     }
 
-    public void register() throws IOException {
-        String errorMessage = registrationValidator.validate(user);
+    public String register(RegistrationRequest request) {
+        String errorMessage = registrationValidator.validate(request);
         if (errorMessage != null) {
             throw  new IllegalStateException(errorMessage);
         }
-        String token = userServiceImpl.save(user);
+        String token = userServiceImpl.save(request);
         String link = LINK + token;
-        emailService.send(user.getEmail(),buildEmail(user.getFirstName(),link));
-        this.user = new User();
-        FacesContext.getCurrentInstance().getExternalContext().redirect("confirmRegistration.jsf");
+        emailService.send(request.getEmail(),buildEmail(request.getFirstName(),link));
+        return token;
     }
 
-    public Boolean confirmToken(String token) {
-        try {
+    public String confirmToken(String token) {
             ConfirmationToken confirmationToken = confirmationTokenServiceImpl
                     .getToken(token)
                     .orElseThrow(() ->
@@ -62,10 +55,7 @@ public class RegistrationServiceImpl implements RegistrationService {
             confirmationTokenServiceImpl.setConfirmedAt(confirmationToken.getConfirmationTokenId());
             userServiceImpl.enableUser(
                     confirmationToken.getUser().getUserId());
-            return true;
-        } catch (RuntimeException e) {
-            return false;
-        }
+            return "confirmed";
     }
 
     public String buildEmail(String name, String link) {
@@ -137,11 +127,4 @@ public class RegistrationServiceImpl implements RegistrationService {
                 "</div></div>";
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

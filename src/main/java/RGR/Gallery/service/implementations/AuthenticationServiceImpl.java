@@ -1,14 +1,13 @@
-package RGR.Gallery.service.implementations;
+package com.example.gallery.service.implementations;
 
-import RGR.Gallery.constants.AppSpecConstants;
-import RGR.Gallery.dao.AuthenticationDao;
-import RGR.Gallery.dao.UserDao;
-import RGR.Gallery.model.User;
-import RGR.Gallery.service.interfaces.AuthenticationService;
-import RGR.Gallery.utils.PasswordEncoder;
+import com.example.gallery.constants.AppSpecConstants;
+import com.example.gallery.dao.AuthenticationDao;
+import com.example.gallery.model.User;
+import com.example.gallery.dao.UserDao;
+import com.example.gallery.service.interfaces.AuthenticationService;
+import com.example.gallery.utils.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.faces.context.FacesContext;
 import java.io.IOException;
 
 @Service
@@ -34,7 +33,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         String validationMessage = checkUserCredentials(user,password);
         if (validationMessage.equals(AppSpecConstants.OK)) {
             dashboardServiceImpl.init(user.getUserId());
-            FacesContext.getCurrentInstance().getExternalContext().redirect("dashboard.jsf");
+            //FacesContext.getCurrentInstance().getExternalContext().redirect("dashboard.jsf");
         } else {
             hasValidationMessage = true;
             this.validationMessage = validationMessage;
