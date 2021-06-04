@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Photoalbum - Profile</title>
+        <link rel="stylesheet" href="./style/style.css"/>
+    </h:head>
+    <h:body>
+        <div class="container" id="container">
+            <div class="overlay-panel">
+                <p:panel header="User Details">
+                    <h:panelGrid columns="1">
+
+                        <p:avatar> image</p:avatar>
+
+                        <h:outputText value="firstName"/>
+
+                        <h:outputText value="lastName"/>
+
+                        <h:outputText value="City"/>
+
+                        <h:outputText value="email"/>
+
+                        <h:outputText value="date + #.{}"/>
+
+                    </h:panelGrid>
+                </p:panel>
+                <p:panel header="More actions">
+                <h:commandLink action = "#{DashboardService.album}" value = "Albums"/>
+                <h:commandLink action = "/exit" value = "Exit"/>
+                </p:panel>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <p:panel header="Publications">
+                    <h:panelGrid columns="1">
+                        <p>smth</p>
+                    </h:panelGrid>
+                </p:panel>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+            </p>
+        </footer>
+        <script src="./style/style.js"></script>
+    </h:body>
+</f:view>
+</html>

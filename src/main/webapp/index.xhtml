@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+	<h:head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Product</title>
+		<link rel="stylesheet" href="./style/style.css"/>
+	</h:head>
+	<h:body>
+		<div class="container" id="container">
+			<div class="form-container sign-up-container">
+				<h:form id="userForm">
+					<p:panel header="User Details">
+						<h:panelGrid columns="1">
+<!--							<p:outputLabel for="firstName" value="First Name: " />-->
+							<p:inputText id="firstName" value="#{registrationServiceImpl.user.firstName}" />
+							<p:watermark for="firstName" value="First Name"/>
+
+<!--							<p:outputLabel for="lastName" value="Last Name: " />-->
+							<p:inputText id="lastName" value="#{registrationServiceImpl.user.lastName}" />
+							<p:watermark for="lastName" value="Last Name"/>
+
+<!--							<p:outputLabel for="email" value="Email: " />-->
+							<p:inputText id="email" value="#{registrationServiceImpl.user.email}" />
+							<p:watermark for="email" value="Email"/>
+
+<!--							<p:outputLabel for="password" value="Password: " />-->
+							<p:inputText type="password" id="password" value="#{registrationServiceImpl.user.password}" />
+							<p:watermark for="password" value="Password"/>
+
+<!--							<p:outputLabel for="city" value="City: " />-->
+							<p:inputText id="city" value="#{registrationServiceImpl.user.city}" />
+							<p:watermark for="city" value="City"/>
+
+<!--							<p:outputLabel for="dateOfBirth" value="Date of Birth: " />-->
+							<p:datePicker id="dateOfBirth" value="#{registrationServiceImpl.user.dateOfBirth}" />
+							<p:watermark for="dateOfBirth" value="dateOfBirth"/>
+
+							<p:commandButton value="Sign Up" action="#{registrationServiceImpl.register()}"/>
+						</h:panelGrid>
+					</p:panel>
+				</h:form>
+			</div>
+			<div class="form-container sign-in-container">
+					<h:form id="userLoginId">
+						<p:panel header="Sign in">
+							<h:panelGrid columns="1">
+<!--								<p:outputLabel for="emailId" value="Email"/>-->
+								<p:inputText id="emailId" value="#{authenticationServiceImpl.user.email}"/>
+								<p:watermark for="emailId" value="Email"/>
+
+<!--								<p:outputLabel for="passwordId" value="Password "/>-->
+								<p:inputText id="passwordId" value="#{authenticationServiceImpl.user.password}"/>
+								<p:watermark for="passwordId" value="Password"/>
+								<h:outputText id="validationmessageId" value="#{authenticationServiceImpl.validationMessage}" rendered="#{authenticationServiceImpl.hasValidationMessage}"/>
+
+								<p:commandButton value="Sign In" action="#{authenticationServiceImpl.login(authenticationServiceImpl.user.email,authenticationServiceImpl.user.password)}" update="@this validationmessageId"/>
+							</h:panelGrid>
+						</p:panel>
+					</h:form>
+			</div>
+			<div class="overlay-container">
+				<div class="overlay">
+					<div class="overlay-panel overlay-left">
+						<h1>Welcome Back!</h1>
+						<p>To keep connected with us please login with your personal info</p>
+						<button class="ghost" id="signIn">Sign In</button>
+					</div>
+					<div class="overlay-panel overlay-right">
+						<h1>Hello, Friend!</h1>
+						<p>Enter your personal details and start journey with us</p>
+						<button class="ghost" id="signUp" >Sign Up</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<p>
+			</p>
+		</footer>
+		<script src="./style/style.js"></script>
+	</h:body>
+</f:view>
+</html>

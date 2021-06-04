@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+    <h:head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Photoalbum</title>
+        <link rel="stylesheet" href="./style/style.css"/>
+    </h:head>
+    <h:body>
+        <div class="container" id="container">
+            <div class="overlay-panel ">
+                <h:outputText value="#{dashboardServiceImpl.dashboard.user.firstName}"/>
+                <h:commandLink action = "/profile" value = "Profile"/>
+                <h:commandLink action = "/search" value = "Search"/>
+                <h:commandLink action = "/exit" value = "Exit"/>
+            </div>
+            <h:panelGroup id="blockId">
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, <h:outputText value="#{dashboardServiceImpl.dashboard.user.firstName}"/></h1>
+                    <p>RGR - photogallery</p>
+                    <h:panelGroup rendered="#{dashboardServiceImpl.showProfile}">
+                        <ui:include src="profile.xhtml"/>
+                    </h:panelGroup>
+                </div>
+            </h:panelGroup>
+        </div>
+
+        <footer>
+            <p>
+            </p>
+        </footer>
+        <script src="./style/style.js"></script>
+    </h:body>
+</f:view>
+</html>
