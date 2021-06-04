@@ -1,16 +1,13 @@
-package RGR.Gallery.endpoints;
+package com.example.gallery.endpoints;
 
-import RGR.Gallery.service.implementations.RegistrationServiceImpl;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
-
+import com.example.gallery.model.RegistrationRequest;
+import com.example.gallery.service.implementations.RegistrationServiceImpl;
+import org.springframework.web.bind.annotation.*;
 /**
  * Define an controller for accepting token
  * */
 @RestController
+@RequestMapping(path = "api/v1/registration")
 public class UserRegistrationController {
 
     private final RegistrationServiceImpl registrationServiceImpl;
@@ -19,14 +16,14 @@ public class UserRegistrationController {
         this.registrationServiceImpl = registrationServiceImpl;
     }
 
+    @PostMapping
+    public String register(@RequestBody RegistrationRequest request) {
+        return registrationServiceImpl.register(request);
+    }
+
     @GetMapping(path = "confirm")
-    public RedirectView confirm(@RequestParam("token") String token,RedirectAttributes attributes) {
-        if (registrationServiceImpl.confirmToken(token)) {
-                attributes.addFlashAttribute("flashAttribute", "redirectWithRedirectView");
-                return new RedirectView("index.jsf");
-        } else {
-            return new RedirectView("index.jsf");
-        }
+    public String confirm(@RequestParam("token") String token) {
+        return registrationServiceImpl.confirmToken(token);
     }
 
 }
