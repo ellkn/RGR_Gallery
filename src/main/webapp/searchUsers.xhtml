@@ -9,22 +9,16 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Product</title>
+        <title>Photoalbum</title>
         <link rel="stylesheet" href="./style/style.css"/>
     </h:head>
     <h:body>
         <div class="container" id="container">
             <div class="form-container sign-up-container">
-                <h:form id="down">
+                <h:form id="userForm">
                     <p:panel header="User Details">
                         <h:panelGrid columns="1">
 
-                            <p:inputText id="albumTitle" value="#{albumDao.addAlbum}" />
-                            <p:watermark for="albumTitle" value="Album Title"/>
-
-
-                            <p:inputText id="description" value="#{albumDao.addAlbum}" />
-                            <p:watermark for="description" value="Description"/>
 
 
 
@@ -35,15 +29,11 @@
             </div>
             <div class="form-container sign-in-container">
                 <h:form id="userLoginId">
-                    <p:panel header="Search for photos">
+                    <p:panel header="Sign in">
                         <h:panelGrid columns="1">
-                            <!--								<p:outputLabel for="emailId" value="Email"/>-->
-                            <p:inputText id="SearchId"/>
 
 
-
-
-
+                            <p:commandButton value="Sign In" action="#{authenticationServiceImpl.login(authenticationServiceImpl.user.email,authenticationServiceImpl.user.password)}" update="@this validationmessageId"/>
                         </h:panelGrid>
                     </p:panel>
                 </h:form>
@@ -51,14 +41,14 @@
             <div class="overlay-container">
                 <div class="overlay">
                     <div class="overlay-panel overlay-left">
-                        <h1>Welcome!</h1>
-                        <p>Here you can find your photos!</p>
-                        <button class="ghost" id="signIn">Search</button>
+                        <h1>Search for users!</h1>
+                        <p>Here you can find your friends</p>
+                        <button class="ghost" id="signIn">GO</button>
                     </div>
                     <div class="overlay-panel overlay-right">
-                        <h1>Hello, Friend!</h1>
-                        <p>Here you can create your own album!</p>
-                        <button class="ghost" id="signUp" >Download</button>
+                        <h1>Album search!</h1>
+                        <p>Here you can find your albums</p>
+                        <button class="ghost" id="signUp" >GO</button>
                     </div>
                 </div>
             </div>

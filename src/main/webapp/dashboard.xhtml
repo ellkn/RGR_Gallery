@@ -14,14 +14,14 @@
     </h:head>
     <h:body>
         <div class="container" id="container">
-            <div class="overlay-panel ">
+            <div class="overlay-panel_1 ">
                 <h:outputText value="#{dashboardServiceImpl.dashboard.user.firstName}"/>
                 <h:commandLink action = "/profile" value = "Profile"/>
                 <h:commandLink action = "/search" value = "Search"/>
                 <h:commandLink action = "/exit" value = "Exit"/>
             </div>
             <h:panelGroup id="blockId">
-                <div class="overlay-panel overlay-right">
+                <div class="overlay-panel ">
                     <h1>Hello, <h:outputText value="#{dashboardServiceImpl.dashboard.user.firstName}"/></h1>
                     <p>RGR - photogallery</p>
                     <h:panelGroup rendered="#{dashboardServiceImpl.showProfile}">
