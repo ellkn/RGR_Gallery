@@ -1,9 +1,11 @@
-package RGR.Gallery.service.interfaces;
+package com.example.gallery.service.interfaces;
+
+import com.example.gallery.model.RegistrationRequest;
 
 import java.io.IOException;
 
 public interface RegistrationService {
-    void register() throws IOException;
-    Boolean confirmToken(String token);
+    String register(RegistrationRequest request) throws IOException;
+    String confirmToken(String token);
     String buildEmail(String name, String link);
 }
