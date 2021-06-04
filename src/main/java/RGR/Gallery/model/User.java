@@ -1,10 +1,15 @@
-package RGR.Gallery.model;
+package com.example.gallery.model;
 
-import RGR.Gallery.constants.UserRole;
+import com.example.gallery.constants.UserRole;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Collections;
 
-public class User {
+public class User implements UserDetails {
 
 	private Long userId;
 	private String firstName;
@@ -63,8 +68,40 @@ public class User {
 		this.email = email;
 	}
 
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		SimpleGrantedAuthority authority =
+				new SimpleGrantedAuthority(userRole.name());
+		return Collections.singletonList(authority);
+	}
+
 	public String getPassword() {
 		return password;
+	}
+
+	@Override
+	public String getUsername() {
+		return this.email;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return isEnabled;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return isEnabled;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return isEnabled;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return isEnabled;
 	}
 
 	public void setPassword(String password) {
