@@ -1,6 +1,7 @@
-package RGR.Gallery.validator;
+package com.example.gallery.validator;
 
-import RGR.Gallery.model.User;
+import com.example.gallery.model.RegistrationRequest;
+import com.example.gallery.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class RegistrationValidator {
         this.emailValidator = emailValidator;
     }
 
-    public String validate(User user) {
+    public String validate(RegistrationRequest user) {
         List<String> messages = new ArrayList<>();
         if (user.getFirstName() == null) {
             messages.add("First name is required.");
@@ -29,9 +30,9 @@ public class RegistrationValidator {
         if (user.getEmail() == null) {
             messages.add("Email is required.");
         }
-        if (user.getDateOfBirth() == null) {
+        /*if (user.getDateOfBirth() == null) {
             messages.add("Date of Birth is required.");
-        }
+        }*/
         if (!messages.isEmpty()) {
             return String.join(",",messages);
         }
