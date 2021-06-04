@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Photoalbum - Album</title>
+        <link rel="stylesheet" href="./style/style.css"/>
+    </h:head>
+    <h:body>
+        <div class="container" id="container">
+            <div class="overlay-panel">
+                <p:panel header="User Details">
+                    <h:panelGrid columns="1">
+                        <h:commandLink action ="#{albumService.loadAlbums}" value = "Load Albums"/>
+
+                    </h:panelGrid>
+                </p:panel>
+                <p:panel header="More actions">
+                    <h:commandLink action = "/profile" value = "Profile"/>
+                    <h:commandLink action = "/exit" value = "Exit"/>
+                </p:panel>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>
+            </p>
+        </footer>
+        <script src="./style/style.js"></script>
+    </h:body>
+</f:view>
+</html>
