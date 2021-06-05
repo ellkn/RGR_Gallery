@@ -1,6 +1,7 @@
 package com.example.gallery.model;
 
 import com.example.gallery.constants.UserRole;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,10 +16,13 @@ public class User implements UserDetails {
 	private String firstName;
 	private String lastName;
 	private String email;
+	@JsonIgnore
 	private String password;
 	private LocalDate dateOfBirth;
 	private String city;
+	@JsonIgnore
 	private Boolean isEnabled = false;
+	@JsonIgnore
 	private UserRole userRole = UserRole.USER;
 	private Document document;
 
@@ -69,6 +73,7 @@ public class User implements UserDetails {
 	}
 
 	@Override
+	@JsonIgnore
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		SimpleGrantedAuthority authority =
 				new SimpleGrantedAuthority(userRole.name());
@@ -80,26 +85,31 @@ public class User implements UserDetails {
 	}
 
 	@Override
+	@JsonIgnore
 	public String getUsername() {
 		return this.email;
 	}
 
 	@Override
+	@JsonIgnore
 	public boolean isAccountNonExpired() {
 		return isEnabled;
 	}
 
 	@Override
+	@JsonIgnore
 	public boolean isAccountNonLocked() {
 		return isEnabled;
 	}
 
 	@Override
+	@JsonIgnore
 	public boolean isCredentialsNonExpired() {
 		return isEnabled;
 	}
 
 	@Override
+	@JsonIgnore
 	public boolean isEnabled() {
 		return isEnabled;
 	}
