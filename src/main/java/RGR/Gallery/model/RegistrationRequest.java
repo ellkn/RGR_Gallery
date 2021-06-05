@@ -1,4 +1,4 @@
-package com.example.gallery.model;
+package RGR.Gallery.model;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -16,7 +16,7 @@ public class RegistrationRequest {
     private final String lastName;
     private final String email;
     private final String password;
-    private LocalDate dateOfBirth;
-    private String city;
-    private Document document;
+    private final LocalDate dateOfBirth;
+    private final String city;
+    private final Document document;
 }

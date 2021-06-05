@@ -1,8 +1,8 @@
-package com.example.gallery.service.implementations;
+package RGR.Gallery.service.implementations;
 
-import com.example.gallery.model.Dashboard;
-import com.example.gallery.model.User;
-import com.example.gallery.service.interfaces.DashboardService;
+import RGR.Gallery.model.Dashboard;
+import RGR.Gallery.model.User;
+import RGR.Gallery.service.interfaces.DashboardService;
 import org.springframework.stereotype.Service;
 
 @Service

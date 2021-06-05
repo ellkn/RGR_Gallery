@@ -1,7 +1,7 @@
-package com.example.gallery.validator;
+package RGR.Gallery.validator;
 
-import com.example.gallery.model.RegistrationRequest;
-import com.example.gallery.model.User;
+import RGR.Gallery.model.RegistrationRequest;
+import RGR.Gallery.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

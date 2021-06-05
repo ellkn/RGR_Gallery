@@ -1,10 +1,10 @@
-package com.example.gallery.endpoints;
+package RGR.Gallery.endpoints;
 
-import com.example.gallery.model.Dashboard;
-import com.example.gallery.model.LoginRequest;
-import com.example.gallery.model.User;
-import com.example.gallery.service.implementations.AuthenticationServiceImpl;
-import com.example.gallery.service.implementations.DashboardServiceImpl;
+import RGR.Gallery.model.Dashboard;
+import RGR.Gallery.model.LoginRequest;
+import RGR.Gallery.model.User;
+import RGR.Gallery.service.implementations.AuthenticationServiceImpl;
+import RGR.Gallery.service.implementations.DashboardServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

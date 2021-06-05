@@ -1,6 +1,6 @@
-package com.example.gallery.service.interfaces;
+package RGR.Gallery.service.interfaces;
 
-import com.example.gallery.model.Dashboard;
+import RGR.Gallery.model.Dashboard;
 
 public interface DashboardService {
     Dashboard init(Long userId);

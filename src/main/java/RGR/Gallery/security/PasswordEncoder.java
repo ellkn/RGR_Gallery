@@ -1,4 +1,4 @@
-package com.example.gallery.security;
+package RGR.Gallery.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,11 +1,11 @@
-package com.example.gallery.service.implementations;
+package RGR.Gallery.service.implementations;
 
-import com.example.gallery.constants.AppSpecConstants;
-import com.example.gallery.dao.AuthenticationDao;
-import com.example.gallery.model.User;
-import com.example.gallery.dao.UserDao;
-import com.example.gallery.service.interfaces.AuthenticationService;
-import com.example.gallery.utils.PasswordEncoder;
+import RGR.Gallery.constants.AppSpecConstants;
+import RGR.Gallery.dao.AuthenticationDao;
+import RGR.Gallery.model.User;
+import RGR.Gallery.dao.UserDao;
+import RGR.Gallery.service.interfaces.AuthenticationService;
+import RGR.Gallery.utils.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;

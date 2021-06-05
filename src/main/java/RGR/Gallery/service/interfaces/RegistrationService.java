@@ -1,6 +1,6 @@
-package com.example.gallery.service.interfaces;
+package RGR.Gallery.service.interfaces;
 
-import com.example.gallery.model.RegistrationRequest;
+import RGR.Gallery.model.RegistrationRequest;
 
 import java.io.IOException;
 

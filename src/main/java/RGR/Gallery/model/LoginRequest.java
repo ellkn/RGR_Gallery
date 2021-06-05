@@ -1,4 +1,4 @@
-package com.example.gallery.model;
+package RGR.Gallery.model;
 
 import lombok.*;
 
@@ -7,6 +7,6 @@ import lombok.*;
 @EqualsAndHashCode
 @ToString
 public class LoginRequest {
-    private String userName;
-    private String password;
+    private final String userName;
+    private final String password;
 }

@@ -1,6 +1,6 @@
-package com.example.gallery.security.config;
+package RGR.Gallery.security.config;
 
-import com.example.gallery.service.interfaces.UserService;
+import RGR.Gallery.service.interfaces.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

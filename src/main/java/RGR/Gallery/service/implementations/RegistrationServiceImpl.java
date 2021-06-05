@@ -1,10 +1,10 @@
-package com.example.gallery.service.implementations;
+package RGR.Gallery.service.implementations;
 
-import com.example.gallery.model.ConfirmationToken;
-import com.example.gallery.model.RegistrationRequest;
-import com.example.gallery.service.interfaces.EmailService;
-import com.example.gallery.service.interfaces.RegistrationService;
-import com.example.gallery.validator.RegistrationValidator;
+import RGR.Gallery.model.ConfirmationToken;
+import RGR.Gallery.model.RegistrationRequest;
+import RGR.Gallery.service.interfaces.EmailService;
+import RGR.Gallery.service.interfaces.RegistrationService;
+import RGR.Gallery.validator.RegistrationValidator;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

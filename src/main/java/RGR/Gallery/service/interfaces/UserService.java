@@ -1,7 +1,7 @@
-package com.example.gallery.service.interfaces;
+package RGR.Gallery.service.interfaces;
 
-import com.example.gallery.model.RegistrationRequest;
-import com.example.gallery.model.User;
+import RGR.Gallery.model.RegistrationRequest;
+import RGR.Gallery.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface UserService extends UserDetailsService {

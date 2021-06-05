@@ -1,6 +1,6 @@
-package com.example.gallery.model;
+package RGR.Gallery.model;
 
-import com.example.gallery.constants.UserRole;
+import RGR.Gallery.constants.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

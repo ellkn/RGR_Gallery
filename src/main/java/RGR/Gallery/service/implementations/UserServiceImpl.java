@@ -1,9 +1,9 @@
-package com.example.gallery.service.implementations;
+package RGR.Gallery.service.implementations;
 
-import com.example.gallery.dao.UserDao;
-import com.example.gallery.model.RegistrationRequest;
-import com.example.gallery.model.User;
-import com.example.gallery.service.interfaces.UserService;
+import RGR.Gallery.dao.UserDao;
+import RGR.Gallery.model.RegistrationRequest;
+import RGR.Gallery.model.User;
+import RGR.Gallery.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

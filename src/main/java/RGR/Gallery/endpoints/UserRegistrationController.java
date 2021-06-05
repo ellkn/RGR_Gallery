@@ -1,8 +1,8 @@
-package com.example.gallery.endpoints;
+package RGR.Gallery.endpoints;
 
-import com.example.gallery.model.RegistrationRequest;
-import com.example.gallery.model.User;
-import com.example.gallery.service.implementations.RegistrationServiceImpl;
+import RGR.Gallery.model.RegistrationRequest;
+import RGR.Gallery.model.User;
+import RGR.Gallery.service.implementations.RegistrationServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

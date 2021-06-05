@@ -1,7 +1,7 @@
-package com.example.gallery.dao;
+package RGR.Gallery.dao;
 
-import com.example.gallery.model.User;
-import com.example.gallery.utils.DateUtil;
+import RGR.Gallery.model.User;
+import RGR.Gallery.utils.DateUtil;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
