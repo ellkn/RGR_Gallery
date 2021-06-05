@@ -25,12 +25,13 @@ public class DashboardServiceImpl implements DashboardService {
         this.documentServiceImpl = documentServiceImpl;
     }
 
-    public void init(Long userId) {
+    public Dashboard init(Long userId) {
         User user = userServiceImpl.loadUser(userId);
         dashboard = new Dashboard(user);
         dashboard.setAlbums(albumServiceImpl.loadAlbums(userId));
         dashboard.setDocuments(documentServiceImpl.loadDocuments(userId));
         dashboard.setPublications(publicationServiceImpl.loadPublications(userId));
+        return dashboard;
 
     }
 

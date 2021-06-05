@@ -26,11 +26,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         this.authenticationDao = authenticationDao;
     }
 
-    public void login(String login,String password) throws IOException {
+    public User login(String login,String password) {
         //TODO check user credentials
         //TODO validation
-        User user = authenticationDao.loadUserInfo(login);
-        String validationMessage = checkUserCredentials(user,password);
+        //User user = authenticationDao.loadUserInfo(login);
+        /*String validationMessage = checkUserCredentials(user,password);
         if (validationMessage.equals(AppSpecConstants.OK)) {
             dashboardServiceImpl.init(user.getUserId());
             //FacesContext.getCurrentInstance().getExternalContext().redirect("dashboard.jsf");
@@ -38,7 +38,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             hasValidationMessage = true;
             this.validationMessage = validationMessage;
 
-        }
+        }*/
+        return authenticationDao.loadUserInfo(login);
     }
 
     public String checkUserCredentials(User user,String password) {
