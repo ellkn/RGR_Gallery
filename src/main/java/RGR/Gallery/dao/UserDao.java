@@ -1,7 +1,7 @@
-package RGR.Gallery.dao;
+package com.example.gallery.dao;
 
-import RGR.Gallery.model.User;
-import RGR.Gallery.utils.DateUtil;
+import com.example.gallery.model.User;
+import com.example.gallery.utils.DateUtil;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -99,7 +99,6 @@ public class UserDao {
     private void collectUserDataFromRS(ResultSet resultSet,User user) throws SQLException {
         user.setUserId(resultSet.getLong("userId"));
         user.setEmail(resultSet.getString("email"));
-        user.setPassword(resultSet.getString("password"));
         user.setFirstName(resultSet.getString("firstName"));
         user.setLastName(resultSet.getString("lastName"));
         user.setEnabled(resultSet.getBoolean("enabled"));
